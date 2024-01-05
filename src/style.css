@@ -1,0 +1,49 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+#animation-controls {
+    position: fixed;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Position to the top-right corner */
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 100; /* Higher than canvas */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 20px; /* Space between buttons */
+}
+
+#animation-controls button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#animation-controls button:hover {
+    background-color: #555;
+}
+
+
