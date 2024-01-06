@@ -38,6 +38,8 @@ window.addEventListener("resize", () => {
   // Update renderer
   renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  updateModelPositionAndScale();
 });
 
 /**
@@ -60,10 +62,11 @@ const gltfLoader = new GLTFLoader();
 let marcusBust = null;
 gltfLoader.load("models/ma_bust/scene.gltf", (gltf) => {
   marcusBust = gltf.scene;
-  marcusBust.position.set(0, 0, 0);
   marcusBust.lookAt(camera.position);
     
   scene.add(marcusBust);
+
+  updateModelPositionAndScale();
 });
 
 //StoicTracker
@@ -93,6 +96,29 @@ function moveCamera(pos, newTargetPos) {
    
    targetCameraPosition = pos.clone();
 }
+
+//#region Functions
+function updateModelPositionAndScale() {
+  if (marcusBust) {
+    // Adjust position and scale based on screen size
+    const scale = Math.min(window.innerWidth / 800, window.innerHeight / 600); // Example scale calculation
+
+    // Position adjustment to center the model
+    // The exact values here depend on the desired position and the size/shape of the model
+    const offset = new THREE.Vector3(3, 0, 0); // Adjust this offset as needed
+
+    // Adjust position based on aspect ratio
+    const aspect = sizes.width / sizes.height;
+    if (aspect > 1) {
+      // Wider screens: move model to the right (or left)
+      marcusBust.position.set(0 * aspect, offset.y, offset.z);
+    } else {
+      // Taller screens: adjust model position vertically if needed
+      marcusBust.position.set(offset.x, offset.y, offset.z);
+    }
+  }
+}
+//#endregion
 
 /**
  * Renderer
