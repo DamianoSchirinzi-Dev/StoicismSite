@@ -107,7 +107,7 @@ body
 #sub-section {
     padding-left: 10px;
     padding-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 90px;
 }
 
 /* Typography */
@@ -192,7 +192,7 @@ body
 @media (max-width: 600px) {
     #main-section {
         width: 200px;
-        padding: 30px 30px 30px 30px; /* Adjusted padding for smaller screens */
+        padding: 45px 30px 40px 30px; /* Adjusted padding for smaller screens */
     }
 
     #main-title {
