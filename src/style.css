@@ -198,10 +198,14 @@ body
     #main-title {
         font-size: 35px;
     }
+
+    #sub-section{
+        padding-bottom: 70px;
+    }
 }
 
 /* Sub-sections */
-#base-info, #sub-section, #information-section h2 {
+#base-info, #information-section h2 {
     padding-bottom: 20px;
 }
 
